@@ -5,10 +5,7 @@ import data from "./pages/allData";
 
 import Header from "./pages/Header";
 import Main from "./pages/Main";
-import City from "./pages/City";
-import Category from "./pages/Category";
-import Detail from "./pages/Detail";
-
+import SelectedCity from "./pages/SelectedCity";
 import Footer from "./pages/Footer";
 
 function App() {
@@ -25,17 +22,8 @@ function App() {
         <Route path="/" element={<Main list={list}></Main>}></Route>
         <Route
           path="/city/:areaName"
-          element={<City list={list}></City>}
+          element={<SelectedCity list={list}></SelectedCity>}
         ></Route>
-        <Route
-          path="/city/:areaName/cate/:category"
-          element={<Category list={list}></Category>}
-        ></Route>
-        <Route
-          path="/detail/:id"
-          element={<Detail list={list}></Detail>}
-        ></Route>
-        <Route path="*" element={<div>404</div>}></Route>
       </Routes>
       <Footer></Footer>
     </div>

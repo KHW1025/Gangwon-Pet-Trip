@@ -1,0 +1,694 @@
+@charset "utf-8";
+
+@font-face {
+  font-family: "GeekbleMalang2WOFF2";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/GeekbleMalang2WOFF2.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SEBANG_Gothic_Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/SEBANG_Gothic_Regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SEBANG_Gothic_Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/SEBANG_Gothic_Bold.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "LINESeedKR-Bd";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+  --mw: 1200px;
+  --fs1: 16px;
+  --fs2: 20px;
+  --fs3: 24px;
+  --fs4: 32px;
+  --fs5: 40px;
+  --fs6: 64px;
+
+  --fc1: #1da2ed;
+  --fc2: #c5eaff;
+  --fc3: #e9f7ff;
+
+  font-family: "SEBANG_Gothic_Regular";
+}
+a {
+  color: inherit;
+}
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+span,
+p {
+  word-break: keep-all;
+}
+.mw {
+  max-width: var(--mw);
+  width: calc(100% - 2rem);
+  margin: auto;
+}
+
+/*////////// Header ////////// */
+.hd {
+  /* border: 1px solid red; */
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+.hd.blur {
+  background-color: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(15px);
+}
+.hdInner {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hd .logo {
+  width: 120px;
+}
+.hd .logo img {
+  width: 100%;
+}
+.btnSearch {
+  width: 150px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: var(--fc1);
+  color: #ffffff;
+  font-size: var(--fs2);
+  font-family: "LINESeedKR-Bd";
+  margin-right: 1.5rem;
+  padding-top: 0.25rem;
+  transition: 0.3s;
+}
+.btnSearch:hover {
+  background-color: #64c5fd;
+}
+
+/*////////// Main - MainBanner ////////// */
+.mainBanner {
+  /* position: relative; */
+  height: 500px;
+  background-image: url(/public/img/indexBanner.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.mainBanner .bannerInner {
+  /* position: absolute; */
+  /* border: 1px solid violet; */
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 2rem;
+}
+.mainBanner .pgTitle {
+  font-family: "GeekbleMalang2WOFF2";
+  font-size: var(--fs6);
+  margin-bottom: 0.75rem;
+}
+.mainBanner .pgTitle span {
+  margin-right: 0.5rem;
+  text-shadow: 0px 4px 4px #313131;
+}
+.mainBanner .title1 {
+  color: #1da2ed;
+}
+.mainBanner .title2 {
+  color: #90f06e;
+}
+.mainBanner .title3 {
+  color: #ffffff;
+}
+.mainBanner .pgInfo {
+  font-family: "SEBANG_Gothic_Bold";
+  font-size: var(--fs4);
+  color: #003769;
+}
+
+/*////////// Main - MainMap ////////// */
+.mainMap {
+  padding-top: 80px;
+  height: 750px;
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+/* index페이지 섹션타이틀 */
+.secTitle {
+  display: flex;
+  align-items: center;
+}
+.dogPawImg {
+  width: 40px;
+  margin-right: 1rem;
+}
+.dogPaw img {
+  width: 100%;
+}
+.secTitle span {
+  font-family: "GeekbleMalang2WOFF2";
+  font-size: var(--fs4);
+}
+.mapImg {
+  width: 500px;
+  position: relative;
+  /* border: 1px solid blue; */
+}
+.mapImg a {
+  position: absolute;
+  padding: 0.25rem;
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  transition: 0.2s;
+}
+.mapImg a .mapPin {
+  margin-bottom: 0.2rem;
+  color: #c5eaff;
+}
+.mapImg a:hover .mapPin {
+  scale: 1.3;
+}
+.mapImg a.on .mapPin {
+  color: #1da2ed;
+  scale: 1.5;
+}
+.mapImg a.on:hover .mapPin {
+  scale: 1.6;
+}
+.mapImg a span {
+  /* font-size: var(--fs1); */
+  font-weight: bold;
+}
+.mapImg a:hover span {
+  color: #2176d6;
+}
+a.CheorwonLink {
+  top: 100px;
+  left: 50px;
+}
+a.HwacheonLink {
+  top: 125px;
+  left: 120px;
+}
+a.YangguLink {
+  top: 120px;
+  left: 190px;
+}
+a.GoseongLink {
+  top: 75px;
+  left: 282px;
+}
+a.SokchoLink {
+  top: 125px;
+  left: 310px;
+}
+a.InjeLink {
+  top: 150px;
+  left: 250px;
+}
+a.ChuncheonLink {
+  top: 200px;
+  left: 125px;
+}
+a.HongcheonLink {
+  top: 239px;
+  left: 192px;
+}
+a.YangyangLink {
+  top: 190px;
+  left: 325px;
+}
+a.GangneungLink {
+  top: 259px;
+  left: 375px;
+}
+a.PyeongchangLink {
+  top: 287px;
+  left: 290px;
+}
+a.HoengseongLink {
+  top: 300px;
+  left: 205px;
+}
+a.WonjuLink {
+  top: 350px;
+  left: 158px;
+}
+a.YeongwolLink {
+  top: 395px;
+  left: 275px;
+}
+a.JeongseonLink {
+  top: 350px;
+  left: 335px;
+}
+a.DonghaeLink {
+  top: 320px;
+  left: 420px;
+}
+a.SamcheokLink {
+  top: 395px;
+  left: 435px;
+}
+a.TaebaekLink {
+  top: 422px;
+  left: 390px;
+}
+.mapImg svg {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+}
+.area {
+  fill: rgb(255, 255, 255);
+  transition: 0.2s;
+}
+.area.on {
+  fill: #82cbff;
+}
+
+.mainMap .selectDetail {
+  width: calc(100% - 500px - 5rem);
+}
+.mainMap .nameCon {
+  display: flex;
+  align-items: center;
+  /* border: 1px solid black; */
+}
+.mainMap .selectLocation {
+  font-size: var(--fs4);
+  font-family: "GeekbleMalang2WOFF2";
+  margin-right: 1rem;
+}
+.mainMap .btnViewMore {
+  width: 25px;
+  height: 25px;
+  background-color: var(--fc1);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5rem;
+  transition: 0.3s;
+}
+.mainMap .btnViewMore > span {
+  color: #ffffff;
+  font-size: var(--fs3);
+}
+/* .mainMap .btnViewMore:hover > span:nth-of-type(1) {
+  transition: 0.3s;
+  opacity: 1;
+}
+.mainMap .btnViewMore > span:nth-of-type(2) {
+  display: none;
+  opacity: 0;
+  transition: 0.3s;
+}
+.mainMap .btnViewMore:hover {
+  width: 150px;
+  border-radius: 4px;
+}
+.mainMap .btnViewMore:hover > span:nth-of-type(1) {
+  display: none;
+  opacity: 0;
+}
+.mainMap .btnViewMore:hover > span:nth-of-type(2) {
+  display: block;
+  opacity: 1;
+} */
+.mainMap .detailCon {
+  margin-top: 30px;
+  padding: 25px 50px;
+  border: 1px solid #dbdbdb;
+  border-radius: var(--fs1);
+  height: 500px;
+  /* overflow: scroll; */
+}
+.mainMap .tabMenu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+.mainMap .tabBtn {
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  background-color: var(--fc2);
+  color: #537884;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.mainMap .tabBtn:hover,
+.mainMap .tabBtn.on:hover {
+  background-color: #64c5fd;
+  color: #ffffff;
+}
+.mainMap .tabBtn.on {
+  background-color: var(--fc1);
+  color: #ffffff;
+}
+.mainMap .mapSlideList {
+  display: flex;
+  border: 1px solid #b8b8b8;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.mainMap .mapSlideImg {
+  width: 30%;
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+.mainMap .mapSlideImg img {
+  width: 100%;
+  height: 100%;
+}
+.mainMap .mapSlideInfo {
+  display: flex;
+  flex-direction: column;
+  width: calc(70% - 1rem);
+}
+
+.bottomDog {
+  position: absolute;
+  width: 170px;
+}
+.bottomDog img {
+  width: 100%;
+}
+.bottomDog1 {
+  bottom: -22px;
+  left: 0;
+}
+.bottomDog2 {
+  bottom: -30px;
+  right: 0;
+}
+
+/*////////// Main - KeywordRecommend ////////// */
+.keywordSec {
+  /* border: 1px solid red; */
+  padding: 100px 0;
+  background-color: var(--fc3);
+}
+.keywordSec .topCon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.keywordSec .keywordBtn {
+  font-size: var(--fs2);
+  color: #888888;
+  margin: 0 20px;
+  cursor: pointer;
+  font-family: "SEBANG_Gothic_Regular";
+}
+.keywordSec .keywordBtn.on {
+  font-weight: bold;
+  color: black;
+}
+
+/* card slide */
+.cardSlideList {
+  background-color: #ffffff;
+  border: 1px solid #dbdbdb;
+  border-radius: 1rem;
+  width: 30%;
+  padding: 1rem;
+}
+.cardSlideList .cardImg {
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+.cardSlideList .cardImg img {
+  width: 100%;
+}
+.cardSlideList .infoCon {
+  padding-top: 0.75rem;
+}
+.cardSlideList .cardInfo1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+.cardSlideList .cardTitle {
+  font-family: "SEBANG_Gothic_Bold";
+  font-size: var(--fs2);
+  width: calc(100% - 80px);
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cardSlideList .cardCate {
+  background-color: #7effff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+}
+.cardSlideList .cardInfo2 {
+  padding: 0 0.25rem;
+  color: rgb(29, 29, 29);
+  font-weight: bold;
+}
+.cardSlideList .cardAd {
+  margin-bottom: 0.25rem;
+}
+.cardSlideList .cardAd span,
+.cardSlideList .cardTel span {
+  display: inline-block;
+  width: 80%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cardSlideList .cardAd i,
+.cardSlideList .cardTel i {
+  margin-right: 0.5rem;
+}
+.loadingDogImg {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loadingDogImg img {
+  width: 30%;
+}
+.loadingDogImg .loadingComment {
+  font-family: "SEBANG_Gothic_Bold";
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  top: 50%;
+  transform: translateY(-50%);
+}
+/* .swiper-button-prev {
+  left: -30px;
+}
+.swiper-button-next {
+  right: -30px;
+} */
+/*////////// Hospital ////////// */
+.hospitalSec {
+  padding: 50px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hospitalSec .secTitle {
+  margin-bottom: 70px;
+}
+.hospitalSec .secInfo {
+  margin-bottom: 30px;
+}
+.hospitalSec .secInfo p {
+  color: #6d6d6d;
+  font-size: var(--fs3);
+  margin-bottom: 0.5rem;
+  margin-left: 1rem;
+}
+.hospitalSec .secInfo .colorPoint {
+  color: #0aa7ff;
+}
+.hospitalSec .hospitalBtn {
+  margin-left: 1rem;
+  border-radius: 10px;
+  background-color: var(--fc1);
+  font-size: var(--fs2);
+  font-family: "LINESeedKR-Bd";
+  padding-top: 0.25rem;
+  transition: 0.3s;
+  color: #ffffff;
+  width: 200px;
+  height: 60px;
+}
+.hospitalSec .hospitalBtn:hover {
+  background-color: #64c5fd;
+}
+.hospitalSec .hospitalDogImg {
+  width: 30%;
+}
+.hospitalSec .hospitalDogImg img {
+  width: 100%;
+}
+
+/*////////// SelectedCity ////////// */
+.cityBannerSec {
+  /* border: 1px solid red; */
+  height: 450px;
+  background-image: url(/public/img/cityBanner.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cityBannerSec .cityBannerInner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cityBannerSec .innerInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.cityBannerSec #selectCity {
+  font-family: "GeekbleMalang2WOFF2";
+  font-size: var(--fs6);
+  color: #ffffff;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  margin: 4rem 0 3rem 0;
+}
+.cityBannerSec #selectCity option {
+  color: #333;
+  font-size: 2rem;
+  text-align: center;
+}
+.cityBannerSec .cityMessage {
+  font-family: "SEBANG_Gothic_Regular";
+  font-size: var(--fs2);
+  text-align: center;
+  color: #f9f9f9;
+}
+
+/*////////// SelectedCity - FoodCate ////////// */
+.cateSec {
+  padding-top: 80px;
+  /* border: 1px solid red; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.cateSec .topCon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.cateSec .viewMoreBtn {
+  color: var(--fc1);
+}
+.dogIcon {
+  width: 50px;
+  height: 50px;
+  margin-right: 1rem;
+}
+.dogIcon img {
+  width: 100%;
+}
+.cateSec .slideCon {
+  /* border: 1px solid blue; */
+  width: 900px;
+}
+.cateSec .sideDogImg {
+  width: calc(100% - 900px - 2rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cateSec .sideDogImg img {
+  width: 90%;
+  object-fit: cover;
+}
+
+/*////////// SelectedCity - HotelCate ////////// */
+.hotelCateSec {
+  padding-bottom: 80px;
+}
+.hotelCateSec .sideDogImg {
+  width: calc(100% - 900px - 1rem);
+}
+.hotelCateSec .sideDogImg img {
+  width: 100%;
+}
+
+/*////////// Footer ////////// */
+.ft {
+  background-color: var(--fc3);
+}
+.ft .footerInner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0.75rem 0;
+}
+.ft .logo {
+  width: 120px;
+}
+.ft .logo img {
+  width: 100%;
+}
+.ft .footerInner > p {
+  margin: 0 3rem 0 1rem;
+}
+.ft .githubLink {
+  display: flex;
+  align-items: center;
+}
+.ft .githubImg {
+  margin-right: 1rem;
+}
