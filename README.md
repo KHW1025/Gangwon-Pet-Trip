@@ -1,3 +1,44 @@
+## - Page Organization
+```
+<App />
+
+    <Header />
+
+    <Main />
+        <MainBanner />
+        <MainMap />
+            <Map />
+        <KeywordRecommend />
+            <CardSlide />
+                <ListCard />
+        <Hospital />
+
+    <City />
+        <FoodCate />
+            <CardSlide />
+                <ListCard />
+        <ExperienceCate />
+            <CardSlide />
+                <ListCard />
+        <HotelCate />
+            <CardSlide />
+                <ListCard />
+
+    <Category />
+        <CateList />
+            <ListCard />
+        <Pagination />
+
+    <Detail />
+        <DetailInfoList />
+            <DetailIntro />
+            <DetailPrice />
+            <DetailCaution />
+            <RecommendPlace />
+
+    <Footer />
+```
+
 ## - Issue history
 > 1. API 활용 단계에서 JS코드를 활용해 API의 데이터들을 JSON파일로 만들었습니다. 
 > <img src="https://user-images.githubusercontent.com/119498531/235096445-11dcdfa4-146d-4220-ae78-ba2a094eee92.png">
@@ -50,10 +91,8 @@ for (let i = 1; i <= 5; i++) {
 
 > 2. 기존 클릭시 클릭을 제외한 모든 요소에 'on'클래스를 제거하고 클릭한 요소에만 'on'클래스를 붙여 <br>
 >    css요소를 추가하거나 기능이 구현되는 것을 document.qurearySelect로 불러와 forEach문을 활용했지만<br>
->    react에서 개발할때는 제한이 있음을 느꼈습니다.
-> <br>
-> map함수로 만든 요소에 클릭할 시 useState의 setSelectedAreaLink에 배열값을 넣고 <br>
-> className에 selectedAreaLink의 값이 넣은 배열의 값과 같다면 'on'클래스가 붙게 하는 방법을 활용했습니다.
+>    react에서 개발할때는 제한이 있음을 느꼈습니다. map함수로 만든 요소에 클릭할 시 useState의 setSelectedAreaLink에 <br>
+>    배열값을 넣고 className에 selectedAreaLink의 값이 넣은 배열의 값과 같다면 'on'클래스가 붙게 하는 방법을 활용했습니다.
 ```
 {areaNames.map((name, i) => (
             <Link
@@ -97,11 +136,9 @@ useEffect(() => {
 <br>
 
 > 5. 이전 페이지에서 useParams로 가져온 카테코리명에 따라 배너의 이미지의 url이 바뀌어야했는데<br>
->    css에서 넣는 방식과 동일하게 작성했더니 작동되는 배경의 주소와 변수로 집어넣은 주소가 console창에 찍히는게
->    다르다는것을 확인했습니다.
-> <br>
-> css에서 작성한 주소가 아니기 때문에 경로 앞에 ${process.env.PUBLIC_URL}를 붙여주고
-> styled-component를 install하여 사용했습니다.
+>    css에서 넣는 방식과 동일하게 작성했더니 작동되는 배경의 주소와 변수로 집어넣은 주소가 console창에 찍히는게<br>
+>    다르다는것을 확인했습니다. css에서 작성한 주소가 아니기 때문에 경로 앞에 ${process.env.PUBLIC_URL}를 붙여주고<br>
+>    styled-component를 install하여 사용했습니다.
 ```
 let categoryUrl =
     categoryName === "food"
