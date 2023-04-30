@@ -15,13 +15,13 @@
 
     <City />
         <FoodCate />
-            <CardSlide />
+            <CateCardSlide />
                 <ListCard />
         <ExperienceCate />
-            <CardSlide />
+            <CateCardSlide />
                 <ListCard />
         <HotelCate />
-            <CardSlide />
+            <CateCardSlide />
                 <ListCard />
 
     <Category />
