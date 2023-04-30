@@ -3,7 +3,6 @@
 <App />
 
     <Header />
-        <SearchModal>
 
     <Main />
         <MainBanner />
