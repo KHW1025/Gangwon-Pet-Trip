@@ -1,0 +1,1647 @@
+@charset "utf-8";
+
+@font-face {
+  font-family: "GeekbleMalang2WOFF2";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2302_01@1.0/GeekbleMalang2WOFF2.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SEBANG_Gothic_Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/SEBANG_Gothic_Regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SEBANG_Gothic_Bold";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/SEBANG_Gothic_Bold.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "LINESeedKR-Bd";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/LINESeedKR-Bd.woff2")
+    format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+:root {
+  --mw: 1200px;
+  --mwSlide: 1300px;
+  --mwSlide2: 1260px;
+  --fs1: 16px;
+  --fs2: 20px;
+  --fs3: 24px;
+  --fs4: 32px;
+  --fs5: 40px;
+  --fs6: 64px;
+
+  --fc1: #1da2ed;
+  --fc2: #c5eaff;
+  --fc3: #e9f7ff;
+
+  font-family: "SEBANG_Gothic_Regular";
+}
+a {
+  color: inherit;
+  transition: 0.3s;
+}
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0;
+}
+span,
+p {
+  word-break: keep-all;
+}
+select {
+  cursor: pointer;
+}
+.mw {
+  max-width: var(--mw);
+  width: calc(100% - 2rem);
+  margin: auto;
+}
+.mwSlide {
+  max-width: var(--mwSlide);
+  width: calc(100% - 2rem);
+  margin: auto;
+}
+.mwSlide2 {
+  max-width: var(--mwSlide2);
+  width: calc(100% - 2rem);
+  margin: auto;
+}
+
+/*////////// Header ////////// */
+.hd {
+  /* border: 1px solid red; */
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+/* .hd.blur {
+  background-color: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(3px);
+} */
+.hdInner {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hd .logo {
+  width: 120px;
+}
+.hd .logo img {
+  width: 100%;
+}
+.btnSearch {
+  width: 150px;
+  height: 50px;
+  border-radius: 10px;
+  background-color: var(--fc1);
+  color: #ffffff;
+  font-size: var(--fs2);
+  font-family: "LINESeedKR-Bd";
+  margin-right: 1.5rem;
+  padding-top: 0.25rem;
+  transition: 0.3s;
+}
+.btnSearch:hover {
+  background-color: #64c5fd;
+}
+
+/*////////// search modal ////////// */
+.searchModalWrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 3;
+  /* display: flex; */
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+.searchModalWrap.on {
+  display: flex;
+}
+.searchModalWrap .searchModal {
+  background-color: var(--fc3);
+  background-image: url(/public/img/searchModalDog.png);
+  background-repeat: no-repeat;
+  background-position: top right;
+  height: 80vh;
+  /* height: 850px; */
+  /* overflow: auto; */
+  padding: 120px;
+  position: relative;
+}
+.searchModalWrap .modalDog {
+  width: 35%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+.searchModalWrap .modalDog img {
+  width: 100%;
+}
+.searchModalWrap .closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  transition: 0.3s;
+  z-index: 2;
+}
+.searchModalWrap .closeBtn:hover {
+  color: var(--fc1);
+}
+.searchModalWrap .modalTitle {
+  font-family: "SEBANG_Gothic_Bold";
+  color: #003769;
+  font-size: var(--fs5);
+  text-align: center;
+  margin-bottom: 30px;
+}
+.searchModalWrap .searchInputBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 1px solid blue; */
+}
+.searchModalWrap .boxInner {
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid red; */
+  max-width: 500px;
+  width: 100%;
+  position: relative;
+}
+
+.searchModalWrap .searchInput {
+  width: 100%;
+  height: 50px;
+  color: #222222;
+  outline: none;
+  border: none;
+  border-bottom: 3px solid #aaaaaa;
+  position: relative;
+  background: none;
+  z-index: 5;
+  padding: 0.25rem 0.5rem 0 0.75rem;
+  font-size: var(--fs2);
+}
+.searchModalWrap .boxInner span {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0%;
+  background-color: #666;
+  width: 0;
+  height: 3px;
+  border-radius: 2px;
+  transition: 0.5s;
+  z-index: 5;
+}
+.searchModalWrap .inputInfo {
+  position: absolute;
+  color: #aaa;
+  left: 10px;
+  font-size: 20px;
+  bottom: 8px;
+  transition: all 0.2s;
+}
+
+input.searchInput:focus ~ .inputInfo,
+input.searchInput:valid ~ .inputInfo {
+  font-size: 16px;
+  bottom: 40px;
+  color: #666;
+  font-weight: bold;
+}
+input.searchInput:focus ~ span,
+input.searchInput:valid ~ span {
+  width: 100%;
+}
+.searchModalWrap .keywordCon {
+  width: 90%;
+  /* margin-top: 1rem; */
+  height: 80px;
+  padding: 0 30px;
+  z-index: 2;
+  /* border: 1px solid red; */
+  position: relative;
+}
+.searchModalWrap .swiper-button-prev,
+.searchModalWrap .swiper-button-next {
+  color: #000000;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+}
+.searchModalWrap .swiper-button-prev::after,
+.searchModalWrap .swiper-button-next::after {
+  font-size: var(--fs2);
+  font-weight: bold;
+}
+.searchModalWrap .keywordItem {
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+}
+.searchModalWrap .searchKeyword {
+  color: #888888;
+  font-size: var(--fs2);
+}
+.searchModalWrap .searchKeyword.on {
+  color: #000000;
+  font-weight: bold;
+}
+
+.searchModalWrap .searchResult {
+  height: 70%;
+  overflow-y: scroll;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 105px;
+  gap: 1rem;
+  /* background-color: #ffffff; */
+  padding: 2rem 1rem 2rem 0;
+}
+.searchModalWrap .searchResult::-webkit-scrollbar {
+  width: 10px;
+  height: 350px;
+}
+.searchModalWrap .searchResult::-webkit-scrollbar-thumb {
+  background-color: rgb(66, 66, 66);
+  border-radius: 1rem;
+  height: 20%;
+}
+.searchModalWrap .searchResult::-webkit-scrollbar-track {
+  background-color: #d9d9d9;
+  /* background-color: transparent; */
+}
+.searchModalWrap .resultItem {
+  border: 1px solid #c2c2c2;
+  border-radius: 1rem;
+  padding: 0.75rem;
+  background-color: #ffffff;
+  transition: 0.3s;
+}
+.searchModalWrap .resultItem a {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.searchModalWrap .resultItem:hover {
+  background-color: #daf7ffbb;
+  color: #000000;
+}
+
+.searchModalWrap .resultImg {
+  width: 80px;
+  height: 100%;
+  overflow: hidden;
+  /* border: 1px solid red; */
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.searchModalWrap .resultImg img {
+  width: 150%;
+}
+.searchModalWrap .resultDetail {
+  width: calc(100% - 80px - 1rem);
+  display: flex;
+  flex-direction: column;
+}
+.searchModalWrap .resultTitle {
+  font-size: var(--fs2);
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+}
+
+/*////////// Main - MainBanner ////////// */
+.mainBanner {
+  /* position: relative; */
+  height: 500px;
+  background-image: url(/public/img/indexBanner.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.mainBanner .bannerInner {
+  /* position: absolute; */
+  /* border: 1px solid violet; */
+  display: flex;
+  align-items: center;
+  height: 100%;
+  /* padding: 2rem; */
+}
+.mainBanner .bannerText {
+  /* background-color: #ffffff83;
+  margin-top: 2rem;
+  padding: 3rem 2rem; */
+  padding: 2rem;
+  border-radius: 1rem;
+}
+.mainBanner .pgTitle {
+  font-family: "GeekbleMalang2WOFF2";
+  font-size: var(--fs6);
+  margin-bottom: 0.75rem;
+}
+.mainBanner .pgTitle span {
+  margin-right: 0.5rem;
+  text-shadow: 0px 4px 4px #313131;
+}
+.mainBanner .title1 {
+  /* color: #90f06e; */
+  /* color: #7bf84e; */
+  color: #1da2ed;
+  /* color: #ffa500; */
+}
+.mainBanner .title2 {
+  /* color: #1da2ed; */
+  color: #90f06e;
+  /* color: #ffa500; */
+}
+.mainBanner .title3 {
+  /* color: #ffa217; */
+  color: #ffffff;
+  /* color: #ffa500; */
+}
+
+.mainBanner .pgInfo {
+  /* font-family: "SEBANG_Gothic_Bold"; */
+  font-size: var(--fs4);
+  color: #003769;
+  /* color: #ffff62; */
+}
+
+/*////////// Main - MainMap ////////// */
+.mainMapWrapper {
+  height: 730px;
+  /* border: 1px solid blue; */
+  position: relative;
+}
+
+/* 사이드 버튼 - 반응형에서 쓰일 버튼 */
+.mainMapWrapper .sideBtn {
+  background-color: var(--fc1);
+  color: #ffffff;
+  position: absolute;
+  left: 0;
+  top: 30%;
+  transform: translateY(-30%);
+  writing-mode: vertical-lr;
+  padding: 1rem 1rem 1rem 0.5rem;
+  border-radius: 0 1rem 1rem 0;
+  transition: 0.3s;
+  z-index: 4;
+  display: none;
+}
+.mainMapWrapper .sideBtn:hover {
+  background-color: #64c5fd;
+}
+.mainMapWrapper .sideBtn > div {
+  display: flex;
+  flex-direction: column;
+}
+.mainMapWrapper .sideBtn > div:nth-of-type(2) {
+  display: none;
+}
+.mainMapWrapper .sideBtn.on > div:nth-of-type(1) {
+  display: none;
+}
+.mainMapWrapper .sideBtn.on > div:nth-of-type(2) {
+  display: flex;
+}
+
+.mainMap {
+  padding-top: 80px;
+  height: 100%;
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+/* index페이지 섹션타이틀 */
+.secTitle {
+  display: flex;
+  align-items: center;
+}
+.dogPawImg {
+  width: 40px;
+  margin-right: 1rem;
+}
+.dogPaw img {
+  width: 100%;
+}
+.secTitle span {
+  font-family: "GeekbleMalang2WOFF2";
+  font-size: var(--fs4);
+}
+.mapImg {
+  width: 500px;
+  position: relative;
+  /* border: 1px solid blue; */
+}
+.mapImg a {
+  position: absolute;
+  padding: 0.25rem;
+  /* border: 1px solid red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  transition: 0.2s;
+}
+.mapImg a .mapPin {
+  margin-bottom: 0.2rem;
+  color: #c5eaff;
+}
+.mapImg a:hover .mapPin {
+  scale: 1.3;
+}
+.mapImg a.on .mapPin {
+  color: #1da2ed;
+  scale: 1.5;
+}
+.mapImg a.on:hover .mapPin {
+  scale: 1.6;
+}
+.mapImg a span {
+  /* font-size: var(--fs1); */
+  font-weight: bold;
+}
+.mapImg a:hover span {
+  color: #2176d6;
+}
+a.Cheorwon {
+  top: 100px;
+  left: 50px;
+}
+a.Hwacheon {
+  top: 125px;
+  left: 120px;
+}
+a.Yanggu {
+  top: 120px;
+  left: 190px;
+}
+a.Goseong {
+  top: 75px;
+  left: 282px;
+}
+a.Sokcho {
+  top: 125px;
+  left: 310px;
+}
+a.Inje {
+  top: 150px;
+  left: 250px;
+}
+a.Chuncheon {
+  top: 200px;
+  left: 125px;
+}
+a.Hongcheon {
+  top: 239px;
+  left: 192px;
+}
+a.Yangyang {
+  top: 190px;
+  left: 325px;
+}
+a.Gangneung {
+  top: 259px;
+  left: 375px;
+}
+a.Pyeongchang {
+  top: 287px;
+  left: 290px;
+}
+a.Hoengseong {
+  top: 300px;
+  left: 205px;
+}
+a.Wonju {
+  top: 350px;
+  left: 158px;
+}
+a.Yeongwol {
+  top: 395px;
+  left: 275px;
+}
+a.Jeongseon {
+  top: 350px;
+  left: 335px;
+}
+a.Donghae {
+  top: 320px;
+  left: 420px;
+}
+a.Samcheok {
+  top: 395px;
+  left: 435px;
+}
+a.Taebaek {
+  top: 422px;
+  left: 390px;
+}
+.mapImg svg {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%);
+}
+.area {
+  fill: rgb(255, 255, 255);
+  transition: 0.2s;
+}
+.area.on {
+  fill: #82cbff;
+}
+
+.mainMap .selectDetail {
+  width: calc(100% - 500px - 7rem);
+}
+.mainMap .nameCon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* border: 1px solid black; */
+}
+.mainMap .selectLocation {
+  font-size: var(--fs4);
+  font-family: "GeekbleMalang2WOFF2";
+  margin-left: 1rem;
+}
+.mainMap .btnViewMore {
+  display: inline-block;
+  /* color: var(--fc1); */
+  font-size: var(--fs2);
+  padding-top: 0.5rem;
+  margin-right: 1rem;
+}
+.mainMap .btnViewMore > span {
+  margin-right: 0.5rem;
+  transition: 0.3s;
+}
+.mainMap .btnViewMore > i {
+  transition: 0.3s;
+}
+.mainMap .btnViewMore:hover {
+  /* color: #00e5ff; */
+  /* color: #57f0f0; */
+  color: var(--fc1);
+}
+.mainMap .btnViewMore:hover > span:nth-of-type(2) {
+  margin-right: 0.75rem;
+}
+.mainMap .detailCon {
+  margin-top: 20px;
+  padding: 25px 0;
+  border: 1px solid #dbdbdb;
+  border-radius: var(--fs1);
+}
+.mainMap .tabMenu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding: 0 50px;
+}
+.mainMap .tabBtn {
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  background-color: var(--fc2);
+  color: #537884;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.mainMap .tabBtn:hover,
+.mainMap .tabBtn.on:hover {
+  background-color: #64c5fd;
+  color: #ffffff;
+}
+.mainMap .tabBtn.on {
+  background-color: var(--fc1);
+  color: #ffffff;
+}
+/* 그리드 슬라이드 */
+.mapGridSlide {
+  padding: 0 50px 20px;
+}
+.mapGridSlide .swiper-wrapper {
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  grid-auto-flow: column;
+}
+
+.mainMap .mapSlideList {
+  border: 1px solid #b8b8b8;
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  height: 100px;
+  margin: 0 50px 25px 0 !important;
+}
+.mapGridSlide .mapSlideList a {
+  display: inline-block;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.mainMap
+  .swiper-pagination.swiper-pagination-fraction.swiper-pagination-horizontal {
+  bottom: 0;
+}
+.mainMap .mapSlideImg {
+  width: 30%;
+  height: 100%;
+  /* width: 100px; */
+  border-radius: 0.5rem;
+  overflow: hidden;
+  /* border: 1px solid red; */
+}
+.mainMap .mapSlideImg img {
+  width: 100%;
+  height: 100%;
+}
+.mainMap .mapSlideInfo {
+  display: flex;
+  flex-direction: column;
+  width: calc(70% - 1rem);
+}
+.mainMap .mapSlideTitle {
+  font-weight: bold;
+  font-size: var(--fs2);
+  margin-bottom: 0.25rem;
+}
+.mainMap .mapSlideAd {
+  margin-bottom: 0.25rem;
+}
+.mainMap .mapSlideAd,
+.mainMap .mapSlideTel {
+  display: flex;
+  align-items: center;
+}
+.mainMap .mapSlideAd i,
+.mainMap .mapSlideTel i {
+  width: 1rem;
+  display: inline-block;
+  margin-right: 0.25rem;
+}
+.mainMap .mapSlideAd span,
+.mainMap .mapSlideTel span {
+  width: calc(100% - 1.25rem);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bottomDog {
+  position: absolute;
+  width: 170px;
+}
+.bottomDog img {
+  width: 100%;
+}
+.bottomDog1 {
+  bottom: -24px;
+  left: 0;
+}
+.bottomDog2 {
+  bottom: -33px;
+  right: 0;
+}
+
+/*////////// Main - KeywordRecommend ////////// */
+.keywordSec {
+  /* border: 1px solid red; */
+  padding: 100px 50px;
+  background-color: var(--fc3);
+}
+.keywordSec .topCon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+  margin-bottom: 30px;
+}
+.keywordSec .keywordBtn {
+  font-size: var(--fs2);
+  color: #888888;
+  margin: 0 20px;
+  cursor: pointer;
+  font-family: "SEBANG_Gothic_Regular";
+}
+.keywordSec .keywordBtn.on {
+  font-weight: bold;
+  color: black;
+}
+
+/* card slide */
+.keywordSec .placeSlide {
+  padding: 0.25rem 49px;
+  /* padding: 0 29px; */
+}
+.keywordSec .swiper-button-prev {
+  left: 0;
+}
+.keywordSec .swiper-button-next {
+  right: 0;
+}
+.cardSlideList {
+  background-color: #ffffff;
+  border: 1px solid #dbdbdb;
+  border-radius: 1rem;
+  width: 30%;
+  padding: 1rem;
+  /* box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.45); */
+}
+
+.listCard .cardImg {
+  border-radius: 0.75rem;
+  overflow: hidden;
+  /* border: 1px solid red; */
+}
+.listCard .cardImg img {
+  width: 100%;
+  scale: 1.1;
+  transition: 0.3s;
+}
+/* .cardSlideList:hover .cardImg img {
+  scale: 1.2;
+  filter: grayscale(0.8);
+} */
+.listCard:hover .cardImg img {
+  scale: 1.2;
+  filter: grayscale(0.8);
+}
+.listCard .infoCon {
+  padding-top: 0.75rem;
+}
+.listCard .cardInfo1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+.listCard .cardTitle {
+  /* font-family: "SEBANG_Gothic_Bold"; */
+  font-size: var(--fs2);
+  width: calc(100% - 80px);
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.listCard .cardCate {
+  background-color: #7effff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+}
+.listCard .cardInfo2 {
+  padding: 0 0.25rem;
+  color: rgb(29, 29, 29);
+  /* font-weight: bold; */
+}
+.listCard .cardInfo2 > p {
+  display: flex;
+  align-items: center;
+}
+.listCard .cardAd {
+  margin-bottom: 0.25rem;
+}
+.listCard .cardAd span,
+.listCard .cardTel span {
+  display: inline-block;
+  width: 80%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.listCard .cardAd i,
+.listCard .cardTel i {
+  margin-right: 0.5rem;
+}
+.loadingDogImg {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.loadingDogImg img {
+  width: 80%;
+}
+.loadingDogImg .loadingComment {
+  font-family: "SEBANG_Gothic_Bold";
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/*////////// Hospital ////////// */
+.hospitalSec {
+  padding: 50px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hospitalSec .secTitle {
+  margin-bottom: 70px;
+}
+.hospitalSec .secInfo {
+  margin-bottom: 30px;
+}
+.hospitalSec .secInfo p {
+  color: #6d6d6d;
+  font-size: var(--fs3);
+  margin-bottom: 0.5rem;
+  margin-left: 1rem;
+}
+.hospitalSec .secInfo .colorPoint {
+  color: #0aa7ff;
+}
+.hospitalSec .hospitalBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 1rem;
+  border-radius: 10px;
+  background-color: var(--fc1);
+  font-size: var(--fs2);
+  font-family: "LINESeedKR-Bd";
+  padding-top: 0.25rem;
+  transition: 0.3s;
+  color: #ffffff;
+  width: 200px;
+  height: 60px;
+}
+.hospitalSec .hospitalBtn:hover {
+  background-color: #64c5fd;
+}
+.hospitalSec .hospitalDogImg {
+  width: 30%;
+}
+.hospitalSec .hospitalDogImg img {
+  width: 100%;
+}
+
+/*////////// SelectedCity ////////// */
+.cityBannerSec {
+  /* border: 1px solid red; */
+  height: 450px;
+  background-image: url(/public/img/cityBanner.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cityBannerSec .cityBannerInner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cityBannerSec .innerInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.cityBannerSec #selectCity {
+  font-family: "GeekbleMalang2WOFF2";
+  font-size: var(--fs6);
+  color: #ffffff;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  margin: 4rem 0 3rem 0;
+}
+.cityBannerSec #selectCity option {
+  color: #333;
+  font-size: 2rem;
+  text-align: center;
+}
+.cityBannerSec .cityMessage {
+  font-family: "SEBANG_Gothic_Regular";
+  font-size: var(--fs2);
+  text-align: center;
+  color: #f9f9f9;
+}
+
+/*////////// SelectedCity - slide ////////// */
+.cateSec .placeSlide {
+  padding: 0.25rem 29px;
+}
+.cateSec .swiper-button-next,
+.cateSec .swiper-button-prev {
+  top: 55%;
+  transform: translateY(-55%);
+  background-color: #a6a6a636;
+  border-radius: 0.25rem;
+}
+.cateSec .swiper-button-prev {
+  left: 0;
+}
+.cateSec .swiper-button-next {
+  right: 0;
+}
+.cateSec .swiper-button-next:after,
+.cateSec .swiper-button-prev:after {
+  color: #000000;
+  font-size: var(--fs2);
+  font-weight: bold;
+}
+
+/*////////// City - FoodCate ////////// */
+.cateSec {
+  padding-top: 80px;
+  /* border: 1px solid red; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.cateSec .topCon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0 30px;
+}
+.cateSec .viewMoreBtn {
+  color: var(--fc1);
+  z-index: 2;
+}
+.dogIcon {
+  width: 50px;
+  height: 50px;
+  margin-right: 1rem;
+}
+.dogIcon img {
+  width: 100%;
+}
+.cateSec .slideCon {
+  /* border: 1px solid blue; */
+  width: 900px;
+}
+.cateSec .sideDogImg {
+  width: calc(100% - 900px - 1rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cateSec .sideDogImg img {
+  width: 90%;
+  object-fit: cover;
+}
+
+/*////////// SelectedCity - HotelCate ////////// */
+.hotelCateSec {
+  padding-bottom: 80px;
+}
+.hotelCateSec .topCon {
+  margin-bottom: -2rem;
+}
+.hotelCateSec .sideDogImg {
+  width: calc(100% - 900px - 1rem);
+  padding-bottom: 4rem;
+}
+.hotelCateSec .sideDogImg img {
+  width: 100%;
+}
+
+/*////////// Category - CateBanner ////////// */
+.cateBanner {
+  height: 450px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.cateBanner .cateBannerInner {
+  height: 100%;
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.cateBanner .bannerTitle {
+  font-family: "SEBANG_Gothic_Bold";
+  font-size: 96px;
+  color: rgba(255, 255, 255, 0.44);
+  margin-top: 4rem;
+  margin-left: 2rem;
+}
+.cateBanner .selectCon {
+  position: absolute;
+  right: 2rem;
+  bottom: 2rem;
+  display: flex;
+  align-items: center;
+}
+.cateBanner #selectCity,
+.cateBanner #selectCate {
+  font-family: "GeekbleMalang2WOFF2";
+  background-color: transparent;
+  color: #ffffff;
+  border: none;
+  outline: none;
+  font-size: var(--fs3);
+  text-align: center;
+}
+.cateBanner #selectCity option,
+.cateBanner #selectCate option {
+  color: #333;
+  font-size: 1rem;
+  text-align: center;
+}
+
+/*////////// Category - CateList ////////// */
+.cateList {
+  padding: 80px 0 10px 0;
+}
+.cateList .listCon {
+  /* border: 1px solid red; */
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.cateList .listCard {
+  width: calc(100% / 4 - 1rem);
+  margin-right: 1.33rem;
+  margin-bottom: 2rem;
+  background-color: #ffffff;
+  border: 1px solid #dbdbdb;
+  border-radius: 1rem;
+  padding: 1rem;
+}
+.cateList .listCard:nth-of-type(4n) {
+  margin-right: 0;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 80px;
+}
+/* 데이터가 없을때 */
+.noDataBox {
+  padding-top: 80px;
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.noDataBox .loadingComment {
+  font-size: var(--fs3);
+}
+
+/*////////// Detail - detailBanner ////////// */
+.detailBanner {
+  height: 550px;
+  background-color: var(--fc3);
+  /* border: 1px solid red; */
+}
+.detailBanner .detailBannerInner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.detailBanner .detailInfo {
+  /* border: 1px solid blue; */
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 2rem 0 2rem;
+}
+.detailBanner .detailImg {
+  width: 45%;
+  border-radius: 1rem;
+  overflow: hidden;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.45));
+}
+.detailBanner .detailImg img {
+  width: 100%;
+}
+.detailBanner .detailTextBox {
+  width: 45%;
+  padding: 50px 30px;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.45);
+}
+.detailBanner .detailTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+}
+.detailBanner .detailTitle span:last-of-type {
+  background-color: #7effff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.detailBanner .detailTitle span:first-of-type {
+  font-weight: bold;
+  font-size: var(--fs3);
+}
+.detailBanner .detailList > div {
+  margin-bottom: 0.75rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.detailBanner .detailList > div > i {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5rem;
+}
+.detailBanner .detailList > div > span {
+  width: calc(100% - 20px);
+}
+/*////////// Detail - DetailInfoList ////////// */
+.detailIntro {
+  padding: 60px 2rem 30px 2rem;
+}
+.detailPrice {
+  padding: 0 2rem 30px 2rem;
+}
+.detailCaution {
+  padding: 0 2rem 30px 2rem;
+}
+.detailTitleBox {
+  display: flex;
+  align-items: center;
+  border-bottom: 3px solid #5e5e5e;
+  padding-bottom: 0.25rem;
+}
+.detailTitleBox .dogIcon {
+  width: 45px;
+  height: 45px;
+}
+.detailTitleBox .dogIcon img {
+  width: 100%;
+}
+.detailTitleBox span {
+  font-size: var(--fs3);
+  font-weight: bold;
+}
+.detailIntro .detailIntroText,
+.detailPrice .detailPriceText,
+.detailCaution .detailCautionText {
+  padding: 20px 0 50px 0;
+  line-height: 1.5;
+}
+.detailPrice .detailPriceText p,
+.detailCaution .detailCautionText p {
+  margin-bottom: 0.5rem;
+}
+/* 주변추천장소 */
+.recommendPlace {
+  /* border: 1px solid red; */
+  padding: 0 2rem 80px 2rem;
+}
+.recommendPlace .recommendCon {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.recommendPlace .recommendCon a {
+  width: calc((100% / 4) - 1rem);
+}
+
+.recommendPlace .recommendList {
+  /* width: calc((100% / 4) - 1rem); */
+  border: 1px solid #4a4a4a;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.recommendPlace .recommendImg {
+  width: 100%;
+  /* height: 100%; */
+  overflow: hidden;
+  /* border: 1px solid red; */
+}
+.recommendPlace .recommendImg img {
+  width: 100%;
+  /* height: 100%; */
+  scale: 1.1;
+  transition: 0.3s;
+}
+.recommendPlace .recommendList:hover .recommendImg img {
+  scale: 1.2;
+  filter: grayscale(0.8);
+}
+.recommendPlace .recommendTitle {
+  padding: 0.75rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: var(--fs2);
+}
+
+/*////////// HospitalMap - hospitalBanner ////////// */
+.hospitalBanner {
+  height: 300px;
+  background-color: var(--fc3);
+}
+.hospitalBanner .bannerInner {
+  width: 100%;
+  height: 100%;
+  /* border: 1px solid red; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.hospitalBanner .bannerText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.hospitalBanner .bannerTitle {
+  font-size: var(--fs5);
+  color: #003769;
+  font-weight: bold;
+  padding: 4rem 0 1rem;
+}
+.hospitalBanner .bannerInfo {
+  font-size: var(--fs3);
+  color: #376ea0;
+}
+.hospitalBanner .sickDogImg1 {
+  position: absolute;
+  left: 0;
+  bottom: 2rem;
+}
+.hospitalBanner .sickDogImg1 img {
+  width: 100%;
+}
+.hospitalBanner .sickDogImg2 {
+  position: absolute;
+  right: 0;
+  bottom: 1rem;
+}
+.hospitalBanner .sickDogImg2 img {
+  width: 100%;
+}
+
+/*////////// HospitalMap - hospitalSearch ////////// */
+.hospitalSearch {
+  padding: 70px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hospitalSearch .searchBox {
+  width: 400px;
+  height: 520px;
+  padding: 50px 30px;
+  background-color: var(--fc3);
+  border-radius: 1rem;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.45);
+}
+.hospitalSearch .inputCon {
+  /* border: 1px solid red; */
+  position: relative;
+  margin-bottom: 30px;
+}
+.hospitalSearch .inputCon > label {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 1rem;
+}
+.hospitalSearch .hospitalSearchInput {
+  width: 100%;
+  height: 40px;
+  padding: 0.75rem 50px;
+  border-radius: 1rem;
+  font-size: var(--fs1);
+  border: 1px solid #aaaaaa;
+}
+.hospitalSearch .searchMap {
+  width: calc(100% - 400px - 40px);
+}
+.hospitalSearch .resultCon {
+  border: 1px solid #aaaaaa;
+  border-radius: 1rem;
+  padding: 1rem;
+  background-color: #ffffff;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 370px;
+}
+.hospitalSearch .resultCon::-webkit-scrollbar {
+  width: 10px;
+  height: 350px;
+}
+.hospitalSearch .resultCon::-webkit-scrollbar-thumb {
+  background-color: rgb(66, 66, 66);
+  border-radius: 1rem;
+  height: 20%;
+}
+.hospitalSearch .resultCon::-webkit-scrollbar-track {
+  /* background-color: #d9d9d9; */
+  background-color: transparent;
+}
+
+.hospitalSearch .resultItem {
+  width: 100%;
+  height: 100px;
+  padding: 0.5rem;
+  border-bottom: 3px solid #aaaaaa;
+  display: flex;
+  flex-direction: column;
+  transition: 0.3s;
+}
+.hospitalSearch .resultItem:hover {
+  color: var(--fc1);
+}
+.hospitalSearch .hospitalName {
+  font-size: var(--fs2);
+  margin-bottom: 0.75rem;
+  font-weight: bold;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: start;
+}
+.hospitalSearch .hospitalAd,
+.hospitalSearch .hospitalTel {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.hospitalSearch .hospitalAd i,
+.hospitalSearch .hospitalTel i {
+  width: 15px;
+  margin-right: 0.25rem;
+}
+.hospitalSearch .hospitalAd span:first-of-type,
+.hospitalSearch .hospitalTel span:first-of-type {
+  width: 2rem;
+  margin-right: 0.25rem;
+}
+.hospitalSearch .hospitalAd span:last-of-type,
+.hospitalSearch .hospitalTel span:last-of-type {
+  text-align: start;
+  width: calc(100% - 15px - 2.75rem);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/*////////// HospitalMap - hospitalSearch - HospitalMapResult  ////////// */
+.hospitalSearch .searchMap {
+  width: calc(100% - 400px - 40px);
+  height: 520px;
+  border-radius: 16px;
+  overflow: hidden;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.45));
+  /* border: 1px solid red; */
+}
+
+/*////////// Footer ////////// */
+.ft {
+  background-color: var(--fc3);
+}
+.ft .footerInner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0.75rem 0;
+}
+.ft .logo {
+  width: 120px;
+}
+.ft .logo img {
+  width: 100%;
+}
+.ft .footerInner > p {
+  margin: 0 3rem 0 1rem;
+}
+.ft .githubLink {
+  display: flex;
+  align-items: center;
+}
+.ft .githubImg {
+  margin-right: 1rem;
+}
+
+/*////////// 반응형 ////////// */
+
+@media (max-width: 1130px) {
+  .mainBanner .pgInfo {
+    font-size: var(--fs3);
+  }
+  .mainMap {
+    height: 680px;
+  }
+  .mapImg {
+    width: 400px;
+    height: 400px;
+  }
+  .mapImg svg {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  a.Cheorwon {
+    top: 125px;
+    left: 40px;
+  }
+  a.Hwacheon {
+    top: 145px;
+    left: 95px;
+  }
+  a.Yanggu {
+    top: 135px;
+    left: 150px;
+  }
+  a.Goseong {
+    top: 100px;
+    left: 222px;
+  }
+  a.Sokcho {
+    top: 150px;
+    left: 245px;
+  }
+  a.Inje {
+    top: 170px;
+    left: 195px;
+  }
+  a.Chuncheon {
+    top: 195px;
+    left: 100px;
+  }
+  a.Hongcheon {
+    top: 235px;
+    left: 150px;
+  }
+  a.Yangyang {
+    top: 195px;
+    left: 260px;
+  }
+  a.Gangneung {
+    top: 259px;
+    left: 300px;
+  }
+  a.Pyeongchang {
+    top: 287px;
+    left: 220px;
+  }
+  a.Hoengseong {
+    top: 290px;
+    left: 160px;
+  }
+  a.Wonju {
+    top: 330px;
+    left: 120px;
+  }
+  a.Yeongwol {
+    top: 360px;
+    left: 215px;
+  }
+  a.Jeongseon {
+    top: 330px;
+    left: 270px;
+  }
+  a.Donghae {
+    top: 310px;
+    left: 330px;
+  }
+  a.Samcheok {
+    top: 360px;
+    left: 345px;
+  }
+  a.Taebaek {
+    top: 382px;
+    left: 312px;
+  }
+  .mainMap .selectDetail {
+    width: calc(100% - 400px - 2rem);
+  }
+  .mainMap .mapSlideList {
+    margin: 0 50px 10px 0 !important;
+  }
+  .bottomDog1 {
+    bottom: -74px;
+    left: 0;
+  }
+  .bottomDog2 {
+    bottom: -83px;
+    right: 0;
+  }
+}
+
+@media (max-width: 960px) {
+  .mainMapWrapper {
+    height: 630px;
+  }
+  .mainMapWrapper .sideBtn {
+    display: block;
+  }
+  .mainMap {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+  }
+  .mapImg {
+    margin-top: -50px;
+  }
+  .mainMap .selectDetail {
+    position: absolute;
+    transition: 0.5s;
+    left: -600px;
+    max-width: 500px;
+    width: 100%;
+    background-color: #ffffff;
+    z-index: 3;
+  }
+  .mainMap .selectDetail.on {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .mainMap .detailCon {
+    background-color: #ffffff;
+  }
+  .bottomDog1 {
+    bottom: 26px;
+    left: 0;
+  }
+  .bottomDog2 {
+    bottom: 18px;
+    right: 0;
+  }
+}
+
+@media (max-width: 750px) {
+  .mainBanner {
+    height: 300px;
+  }
+  .mainBanner .bannerInner {
+    padding: 4rem 2rem 0;
+  }
+  .mainBanner .pgTitle {
+    font-size: var(--fs5);
+    margin-bottom: 1rem;
+  }
+  .mainBanner .pgInfo {
+    font-size: var(--fs2);
+    display: flex;
+    flex-direction: column;
+  }
+  .mainBanner .pgInfo > span:first-of-type {
+    margin-bottom: 0.25rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .mainBanner {
+    height: 250px;
+  }
+}
