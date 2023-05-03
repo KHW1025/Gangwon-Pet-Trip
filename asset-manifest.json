@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/Gangwon-Pet-Trip/static/css/main.62a88438.css",
-    "main.js": "/Gangwon-Pet-Trip/static/js/main.c6eb6542.js",
+    "main.css": "/Gangwon-Pet-Trip/static/css/main.b70d86c4.css",
+    "main.js": "/Gangwon-Pet-Trip/static/js/main.aa26b663.js",
     "static/js/787.09b35ef7.chunk.js": "/Gangwon-Pet-Trip/static/js/787.09b35ef7.chunk.js",
     "static/media/indexBanner.jpg": "/Gangwon-Pet-Trip/static/media/indexBanner.87b908bc5e0e04025fd6.jpg",
     "static/media/cityBanner.jpg": "/Gangwon-Pet-Trip/static/media/cityBanner.32c778dc06e755086259.jpg",
     "static/media/searchModalDog.png": "/Gangwon-Pet-Trip/static/media/searchModalDog.c2bec29c6b93ed0290f8.png",
     "index.html": "/Gangwon-Pet-Trip/index.html",
-    "main.62a88438.css.map": "/Gangwon-Pet-Trip/static/css/main.62a88438.css.map",
-    "main.c6eb6542.js.map": "/Gangwon-Pet-Trip/static/js/main.c6eb6542.js.map",
+    "main.b70d86c4.css.map": "/Gangwon-Pet-Trip/static/css/main.b70d86c4.css.map",
+    "main.aa26b663.js.map": "/Gangwon-Pet-Trip/static/js/main.aa26b663.js.map",
     "787.09b35ef7.chunk.js.map": "/Gangwon-Pet-Trip/static/js/787.09b35ef7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.62a88438.css",
-    "static/js/main.c6eb6542.js"
+    "static/css/main.b70d86c4.css",
+    "static/js/main.aa26b663.js"
   ]
 }
