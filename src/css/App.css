@@ -1418,8 +1418,43 @@ a.Taebaek {
   /* height: 100%; */
   padding: 90px 0;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+}
+.detailBanner .breadCrumbsCon {
+  width: 100%;
+  padding: 1rem;
+  margin-left: 0.5rem;
+  /* margin-bottom: 1rem; */
+  /* border: 1px solid red; */
+  display: flex;
+}
+.detailBanner .breadCrumbsCon li {
+  /* border: 1px solid red; */
+  padding: 0.25rem 0.5rem;
+  margin-right: 1rem;
+  position: relative;
+  transition: 0.3s;
+}
+.detailBanner .breadCrumbsCon li:last-of-type {
+  margin-top: 0.1rem;
+}
+.detailBanner .breadCrumbsCon li::after {
+  content: "\f054";
+  position: relative;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  right: -30%;
+  top: 2px;
+  /* top: 50%; */
+  /* transform: translateY(-50%); */
+}
+.detailBanner .breadCrumbsCon li:last-of-type:after {
+  display: none;
+}
+.detailBanner .breadCrumbsCon li:hover a {
+  color: var(--fc4);
 }
 .detailBanner .detailInfo {
   /* border: 1px solid blue; */
@@ -1456,8 +1491,10 @@ a.Taebaek {
   margin-bottom: 3rem;
 }
 .detailBanner .detailTitle span:last-of-type {
-  background-color: #7effff;
-  padding: 0.25rem 0.5rem;
+  /* background-color: #7effff; */
+  background-color: var(--fc4);
+  color: #ffffff;
+  padding: 0.5rem 0.75rem;
   border-radius: 0.5rem;
   display: flex;
   justify-content: center;
@@ -2013,6 +2050,9 @@ a.Taebaek {
   .cateList .listCard:nth-of-type(3n) {
     margin-right: 0;
   }
+  .detailBanner .breadCrumbsCon {
+    width: 80%;
+  }
   .detailBanner .detailInfo {
     flex-direction: column;
   }
@@ -2431,6 +2471,9 @@ a.Taebaek {
   .detailBanner .detailBannerInner {
     padding: 90px 0 50px;
   }
+  .detailBanner .breadCrumbsCon {
+    width: 100%;
+  }
   .detailBanner .detailImg {
     width: 100%;
     /* margin-bottom: 1rem; */
@@ -2695,6 +2738,13 @@ a.Taebaek {
     transform: translateX(-50%);
     z-index: 3;
     /* right: -2.5rem; */
+  }
+  .detailBanner .breadCrumbsCon {
+    padding: 0.5rem;
+  }
+  .detailBanner .breadCrumbsCon li {
+    font-size: 0.75rem;
+    margin-right: 0.5rem;
   }
   .detailBanner .detailTextBox {
     padding: 30px;
