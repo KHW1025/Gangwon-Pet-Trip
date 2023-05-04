@@ -112,18 +112,29 @@ function MainMap({ list }) {
   // 목록보기, 지도보기 버튼
   // 누르면 버튼에 on 클래스, .selectDetail에 on
   // 다시누르면 on 삭제
+  let [sideBtnOn, setSideBtnOn] = useState("close");
+
+  console.log();
 
   return (
     <>
       <section className="mainMapWrapper">
-        <button className="sideBtn">
-          <div>
+        <button className={`sideBtn ${sideBtnOn === "on" ? "on" : ""}`}>
+          <div
+            onClick={() => {
+              setSideBtnOn("on");
+            }}
+          >
             <span>목</span>
             <span>록</span>
             <span>보</span>
             <span>기</span>
           </div>
-          <div>
+          <div
+            onClick={() => {
+              setSideBtnOn("close");
+            }}
+          >
             <span>지</span>
             <span>도</span>
             <span>보</span>
@@ -152,6 +163,10 @@ function MainMap({ list }) {
                   }`}
                   onClick={() => {
                     setSelectedAreaLink(areaNames[i]);
+                    setTimeout(() => {
+                      setSideBtnOn("on");
+                    }, 200);
+                    // setSideBtnOn("on");
                   }}
                 >
                   <i className="fa-solid fa-location-dot mapPin"></i>
@@ -159,10 +174,13 @@ function MainMap({ list }) {
                 </Link>
               ))}
               {/* svg 파일 */}
-              <Map selectedAreaNum={selectedAreaNum}></Map>
+              <Map
+                selectedAreaNum={selectedAreaNum}
+                setSideBtnOn={setSideBtnOn}
+              ></Map>
             </div>
           </div>
-          <div className="selectDetail">
+          <div className={`selectDetail ${sideBtnOn === "on" ? "on" : ""}`}>
             <div className="nameCon">
               <Link to={`/city/${selectedAreaLink}`} className="selectLocation">
                 {selectedAreaLink}
@@ -207,6 +225,11 @@ function MainMap({ list }) {
                 }}
                 navigation={true}
                 modules={[Grid, Pagination, Navigation]}
+                // breakpoints={{
+                //   520: {
+                //     spaceBetween: 17,
+                //   },
+                // }}
                 className="mySwiper mapGridSlide"
               >
                 {tabData.map((item, i) => {

@@ -7,6 +7,8 @@ function HospitalSearch({ hospitalData }) {
 
   let [searchData, setSearchData] = useState(hospitalData);
 
+  let [slideBtn, setSlideBtn] = useState();
+
   // 위도
   let [selectLatitude, setSelectLatitude] = useState("37.8553453860199");
 
@@ -15,7 +17,15 @@ function HospitalSearch({ hospitalData }) {
 
   return (
     <section className="hospitalSearch mw">
-      <div className="searchBox">
+      <div className={`searchBox ${slideBtn === "on" ? "on" : ""}`}>
+        <div
+          className={`btnHospital ${slideBtn === "on" ? "on" : ""}`}
+          onClick={() => {
+            slideBtn === "on" ? setSlideBtn("") : setSlideBtn("on");
+          }}
+        >
+          <i class="fa-solid fa-caret-right"></i>
+        </div>
         <div className="inputCon">
           <label htmlFor="hospitalSearchInput">
             <i class="fa-solid fa-magnifying-glass"></i>

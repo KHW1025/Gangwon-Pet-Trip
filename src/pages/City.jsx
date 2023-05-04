@@ -41,7 +41,29 @@ function City({ list }) {
   );
   // console.log(selectedCityData);
 
-  // select요소에서 지역을 변경할때마다 주소 url이 바뀐다.
+  // select대신 ul과 li로 선택
+  const areaNames = [
+    "인제",
+    "속초",
+    "고성",
+    "양양",
+    "강릉",
+    "동해",
+    "삼척",
+    "양구",
+    "철원",
+    "태백",
+    "화천",
+    "춘천",
+    "홍천",
+    "평창",
+    "횡성",
+    "원주",
+    "정선",
+    "영월",
+  ];
+
+  // ul요소에서 지역을 변경할때마다 주소 url이 바뀐다.
   useEffect(() => {
     window.history.replaceState("", "", `/city/${selectedCity}`);
   }, [selectedCity]);
@@ -51,73 +73,28 @@ function City({ list }) {
       <section className="cityBannerSec">
         <div className="cityBannerInner mw">
           <div className="innerInfo">
-            <select
-              name="selectCity"
-              id="selectCity"
-              defaultValue={
-                areaName === "춘천"
-                  ? "0"
-                  : areaName === "화천"
-                  ? "1"
-                  : areaName === "양구"
-                  ? "2"
-                  : areaName === "고성"
-                  ? "3"
-                  : areaName === "속초"
-                  ? "4"
-                  : areaName === "인제"
-                  ? "5"
-                  : areaName === "철원"
-                  ? "6"
-                  : areaName === "홍천"
-                  ? "7"
-                  : areaName === "양양"
-                  ? "8"
-                  : areaName === "강릉"
-                  ? "9"
-                  : areaName === "평창"
-                  ? "10"
-                  : areaName === "횡성"
-                  ? "11"
-                  : areaName === "원주"
-                  ? "12"
-                  : areaName === "영월"
-                  ? "13"
-                  : areaName === "정선"
-                  ? "14"
-                  : areaName === "동해"
-                  ? "15"
-                  : areaName === "삼척"
-                  ? "16"
-                  : areaName === "태백"
-                  ? "17"
-                  : ""
-              }
-              onChange={(e) => {
-                setSelectedCity(e.target.options[e.target.selectedIndex].text);
-                setMessage(cityMessage[e.target.value]);
-                // console.log(e.target.value);
-              }}
-            >
-              <option value="0">춘천</option>
-              <option value="1">화천</option>
-              <option value="2">양구</option>
-              <option value="3">고성</option>
-              <option value="4">속초</option>
-              <option value="5">인제</option>
-              <option value="6">철원</option>
-              <option value="7">홍천</option>
-              <option value="8">양양</option>
-              <option value="9">강릉</option>
-              <option value="10">평창</option>
-              <option value="11">횡성</option>
-              <option value="12">원주</option>
-              <option value="13">영월</option>
-              <option value="14">정선</option>
-              <option value="15">동해</option>
-              <option value="16">삼척</option>
-              <option value="17">태백</option>
-            </select>
+            <ul className="selectCityMenu">
+              <li>
+                <p>
+                  {selectedCity}
+                  <i class="fa-solid fa-caret-down"></i>
+                </p>
+                <ul className="selectCitySub">
+                  {areaNames.map((item, i) => (
+                    <li
+                      key={i}
+                      className="cityList"
+                      onClick={() => {
+                        setSelectedCity(item);
+                        setMessage(cityMessage[i]);
+                      }}
+                    >
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            </ul>
             <span className="cityMessage">{message}</span>
           </div>
         </div>

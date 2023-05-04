@@ -20,11 +20,16 @@ function CateCardSlide({ data }) {
         </div>
       ) : (
         <Swiper
-          slidesPerView={3}
-          // slidesPerGroup={3}
+          slidesPerView={1}
           spaceBetween={30}
+          // slidesPerView={3}
+          // spaceBetween={30}
           navigation={true}
           modules={[Navigation]}
+          breakpoints={{
+            960: { slidesPerView: 3, spaceBetween: 50 },
+            520: { slidesPerView: 2, spaceBetween: 30 },
+          }}
           className="mySwiper placeSlide"
         >
           {data.map((item, i) => {

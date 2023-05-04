@@ -58,7 +58,10 @@ function Header({ urlName, list }) {
               noScroll();
             }}
           >
-            검색하기
+            <span className="searchText">검색하기</span>
+            <span className="searchIcon">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </span>
           </button>
         </div>
       </header>
@@ -100,8 +103,13 @@ function Header({ urlName, list }) {
           <Swiper
             navigation={true}
             modules={[Navigation]}
-            slidesPerView={5}
-            spaceBetween={30}
+            slidesPerView={3}
+            spaceBetween={20}
+            breakpoints={{
+              960: { slidesPerView: 5, spaceBetween: 30 },
+              750: { slidesPerView: 4, spaceBetween: 23 },
+              400: { slidesPerView: 3, spaceBetween: 23 },
+            }}
             className="mySwiper keywordCon"
           >
             {modalKeyword.map((item, i) => (

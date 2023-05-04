@@ -12,6 +12,7 @@ function Category({ list }) {
   let [selectedCateCity, setSelectedCateCity] = useState(areaName);
   let [categoryName, setCategoryName] = useState(category);
 
+  console.log(category);
   // useParams로 받아온 category에 따라 categoryName가 변해서
   // 배경이미지를 변경한다.
   let categoryUrl =
@@ -26,6 +27,42 @@ function Category({ list }) {
   let BannerTitle = styled.section`
     background-image: url(${categoryUrl});
   `;
+
+  // ul로 지역과 카테고리를 선택
+  const areaNames = [
+    "인제",
+    "속초",
+    "고성",
+    "양양",
+    "강릉",
+    "동해",
+    "삼척",
+    "양구",
+    "철원",
+    "태백",
+    "화천",
+    "춘천",
+    "홍천",
+    "평창",
+    "횡성",
+    "원주",
+    "정선",
+    "영월",
+  ];
+
+  let prevPageCate =
+    category === "food"
+      ? "식음료"
+      : category === "experience"
+      ? "관광&체험"
+      : category === "hotel"
+      ? "숙박"
+      : "";
+
+  let [selectedCateName, setSelectedCateName] = useState(prevPageCate);
+
+  const cateNames = ["식음료", "관광&체험", "숙박"];
+  const cateNamesEn = ["food", "experience", "hotel"];
 
   // useParams로 받아온 areaName에 selectedCity가 따라
   // 영문명으로 호출
@@ -83,11 +120,11 @@ function Category({ list }) {
     (item) =>
       !(item.resultList.partName === "동물병원") &&
       item.resultList.areaName.includes(selectedCateCity) &&
-      (categoryName === "food"
+      (selectedCateName === "식음료"
         ? item.resultList.partName === "식음료"
-        : categoryName === "hotel"
+        : selectedCateName === "숙박"
         ? item.resultList.partName === "숙박"
-        : categoryName === "experience"
+        : selectedCateName === "관광&체험"
         ? item.resultList.partName === "관광지" ||
           item.resultList.partName === "체험"
         : "")
@@ -118,95 +155,51 @@ function Category({ list }) {
         <div className="cateBannerInner mw">
           <span className="bannerTitle">{cateBannerTitle}</span>
           <div className="selectCon">
-            <select
-              name="selectCity"
-              id="selectCity"
-              defaultValue={
-                selectedCateCity === "춘천"
-                  ? "0"
-                  : selectedCateCity === "화천"
-                  ? "1"
-                  : selectedCateCity === "양구"
-                  ? "2"
-                  : selectedCateCity === "고성"
-                  ? "3"
-                  : selectedCateCity === "속초"
-                  ? "4"
-                  : selectedCateCity === "인제"
-                  ? "5"
-                  : selectedCateCity === "철원"
-                  ? "6"
-                  : selectedCateCity === "홍천"
-                  ? "7"
-                  : selectedCateCity === "양양"
-                  ? "8"
-                  : selectedCateCity === "강릉"
-                  ? "9"
-                  : selectedCateCity === "평창"
-                  ? "10"
-                  : selectedCateCity === "횡성"
-                  ? "11"
-                  : selectedCateCity === "원주"
-                  ? "12"
-                  : selectedCateCity === "영월"
-                  ? "13"
-                  : selectedCateCity === "정선"
-                  ? "14"
-                  : selectedCateCity === "동해"
-                  ? "15"
-                  : selectedCateCity === "삼척"
-                  ? "16"
-                  : selectedCateCity === "태백"
-                  ? "17"
-                  : ""
-              }
-              onChange={(e) => {
-                setSelectedCateCity(
-                  e.target.options[e.target.selectedIndex].text
-                );
-                // selectedCity가 바뀌어서 영문명 변경
-              }}
-            >
-              <option value="0">춘천</option>
-              <option value="1">화천</option>
-              <option value="2">양구</option>
-              <option value="3">고성</option>
-              <option value="4">속초</option>
-              <option value="5">인제</option>
-              <option value="6">철원</option>
-              <option value="7">홍천</option>
-              <option value="8">양양</option>
-              <option value="9">강릉</option>
-              <option value="10">평창</option>
-              <option value="11">횡성</option>
-              <option value="12">원주</option>
-              <option value="13">영월</option>
-              <option value="14">정선</option>
-              <option value="15">동해</option>
-              <option value="16">삼척</option>
-              <option value="17">태백</option>
-            </select>
-            <select
-              name="selectCate"
-              id="selectCate"
-              defaultValue={
-                categoryName === "food"
-                  ? "food"
-                  : categoryName === "experience"
-                  ? "experience"
-                  : categoryName === "hotel"
-                  ? "hotel"
-                  : ""
-              }
-              onChange={(e) => {
-                setCategoryName(e.target.value);
-                // categoryName가 바뀌어서 배경 이미지 변경
-              }}
-            >
-              <option value="food">식음료</option>
-              <option value="experience">관광&체험</option>
-              <option value="hotel">숙박</option>
-            </select>
+            <ul className="selectCityMenu">
+              <li>
+                <p>
+                  {selectedCateCity}
+                  <i class="fa-solid fa-caret-down"></i>
+                </p>
+                <ul className="selectCitySub">
+                  {areaNames.map((item, i) => (
+                    <li
+                      key={i}
+                      className="cityList"
+                      onClick={() => {
+                        setSelectedCateCity(item);
+                      }}
+                    >
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            </ul>
+
+            <ul className="selectCateMenu">
+              <li>
+                <p>
+                  {selectedCateName}
+                  <i class="fa-solid fa-caret-down"></i>
+                </p>
+                <ul className="selectCateSub">
+                  {cateNames.map((item, i) => (
+                    <li
+                      key={i}
+                      className="cateList"
+                      onClick={() => {
+                        setSelectedCateName(item);
+                        // categoryName가 바뀌어서 배경 이미지 변경
+                        setCategoryName(cateNamesEn[i]);
+                      }}
+                    >
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            </ul>
           </div>
         </div>
       </BannerTitle>
