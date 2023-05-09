@@ -55,6 +55,7 @@ function HospitalSearch({ hospitalData }) {
               onClick={() => {
                 setSelectLatitude(item.resultList.latitude);
                 setSelectLongitude(item.resultList.longitude);
+                setSlideBtn("");
               }}
             >
               <p className="hospitalName">{item.resultList.title}</p>
