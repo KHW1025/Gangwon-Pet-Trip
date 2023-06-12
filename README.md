@@ -1,3 +1,12 @@
+<img width="800" src="https://github.com/KHW1025/Gangwon-Pet-Trip/assets/119498531/3dacb9f8-5466-48d3-a81b-c689ed2e9978"/>
+
+# Gangwon-Pet-Trip
+<br>
+
+> **강원 펫 트립**
+<br>
+
+
 ## - Page Organization
 ```
 <App />
