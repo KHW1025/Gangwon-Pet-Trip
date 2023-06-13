@@ -6,10 +6,16 @@
 > **강원 펫 트립**
 <br>
 
+## 1️⃣ 목적 & 구성
+<br>
 
-## - Page Organization
+> - 반려동물과 함께 강원도를 여행하고자 하는 이용자들에게 각 여행지의 위치와 정보 제공
+> - [강원도 반려동물 동반관광 API시스템](https://www.pettravel.kr/petapi/api) 에서 제공하는 API를 활용
+> - 데이터를 JSON 파일로 재가공
+
+### - 페이지 구성
 ```
-<App />
+<App>
 
     <Header />
 
@@ -47,11 +53,49 @@
 
     <Footer />
 ```
+<br>
 
-## - Issue history
-> 1. API 활용 단계에서 JS코드를 활용해 API의 데이터들을 JSON파일로 만들었습니다. 
+## 2️⃣ 프로젝트 역할
+<br>
+
+> - 김현우 : 기획, 디자인(100%), 개발(100%)
+> - [오정석](https://github.com/jeong0214) : 기획 
+<br>
+
+ ## 3️⃣ 프로젝트 사용 툴
+ 
+ ### Communication
+ 
+>![Slack](https://img.shields.io/badge/Slack-4A154B?style=for-the-badge&logo=Slack&logoColor=white)
+>![Notion](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=Notion&logoColor=white)
+ 
+ ### Environment
+ 
+> <img src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white"/> 
+
+>![Visual Studio Code](https://img.shields.io/badge/Visual%20Studio%20Code-007ACC?style=for-the-badge&logo=Visual%20Studio%20Code&logoColor=white)
+>![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=Git&logoColor=white)
+>![Github](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=GitHub&logoColor=white)             
+
+
+### Development
+
+> <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white"/>
+> <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
+<br>
+
+## 4️⃣ 기획 & 설계 시안
+<br>
+
+> - [약식기획서 (figjam)](https://www.figma.com/file/zP3ONk3pY9sfOYamSRjl0N/with-my-pet?type=whiteboard&t=GIJbVjxciEZG0fYb-1)
+> - [설계 시안 (figma)](https://www.figma.com/file/1JIeWlzenjTkxptlkc70tX/Project4-Gangwon-Pet-Trip?type=design&node-id=0%3A1&t=GIJbVjxciEZG0fYb-1)
+<br>
+
+## 5️⃣ 이슈 히스토리 
+<br>
+> 1. 빈 데이터와 오류가 생기는 데이터들이 있어 API 활용 단계에서 JS코드를 활용해 API의 데이터들을 JSON파일로 재가공했습니다. 
 > <img src="https://user-images.githubusercontent.com/119498531/235096445-11dcdfa4-146d-4220-ae78-ba2a094eee92.png">
-> 
+
 ```const https = require("https");
 const querystring = require("querystring");
 const fs = require("fs");
@@ -162,4 +206,40 @@ let categoryUrl =
     background-image: url(${categoryUrl});
   `;
 ```
+<br>
 
+## 6️⃣ 화면구성 📺
+<br>
+
+> - 메인화면
+> <img width="350" alt="image" src="https://github.com/KHW1025/Gangwon-Pet-Trip/assets/119498531/c9acf737-5132-443b-b59c-8692939b83d0">
+
+<br>
+<br>
+
+> - 검색모달
+> <img width="350" alt="image" src="https://github.com/KHW1025/Gangwon-Pet-Trip/assets/119498531/737f2775-7cbc-4c64-8af5-d618ad17f2cc">
+
+<br>
+<br>
+
+> - 지역 페이지
+> <img width="350" alt="image" src="https://github.com/KHW1025/Gangwon-Pet-Trip/assets/119498531/c6205568-60e8-4bf6-b318-4ab0692300fd">
+
+<br>
+<br>
+
+> - 카테고리 페이지
+> <img width="350" alt="image" src="https://github.com/KHW1025/Gangwon-Pet-Trip/assets/119498531/bb9a785c-95e1-4a66-bca0-2db76e4cc61a">
+
+<br>
+<br>
+
+> - 디테일 페이지
+> <img width="350" alt="image" src="https://github.com/KHW1025/Gangwon-Pet-Trip/assets/119498531/47478fad-d11a-42bb-810e-6e0925dbee71">
+
+<br>
+<br>
+
+> - 병원 지도 페이지
+> <img width="350" alt="image" src="https://github.com/KHW1025/Gangwon-Pet-Trip/assets/119498531/da8ac140-5d64-4f52-9887-374c7520ff96">
